@@ -32,6 +32,13 @@ public class Parking {
         matriculas.set(posicion, matricula);
           
     }
+    public int salida (String matricula) throws ParkingException{
+    if(matriculas.contains(matricula))
+        throw new ParkingException("matricula no existente ",matricula);
+    int posicion = matriculas.indexOf(matricula);
+    matriculas.set(posicion, null);
+    return posicion;
+    }
 
     private static class ParkingException extends Exception {
 
